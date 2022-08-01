@@ -15,6 +15,13 @@ def replaceStr(s, fromStr, toStr):
     res=toStr.join(sspl)
   return res
 
+def printTasks(title, d):
+  if bool(d):
+    print()
+    print(title)
+    for k in d:
+      print("%s. %s" % (k, d[k]))
+
 regex = re.compile("^[a-zA-Z]+-[0-9]+ - .+$")
 lines=[]
 
@@ -40,5 +47,35 @@ for l in lines:
   d[lsp[0]] = ''.join(rsp)
 
 d = OrderedDict(sorted(d.items()))
+
+ducsx = OrderedDict()
+ducs = OrderedDict()
+dciwd = OrderedDict()
+dnexus = OrderedDict()
+dgps = OrderedDict()
+dgpsbl = OrderedDict()
+dothers = OrderedDict()
+  
 for k in d:
-  print("%s. %s" % (k, d[k]))
+  if re.match('^UCSX-[0-9]+', k) or re.match('^GAPI-[0-9]+', k):
+    ducsx[k]=d[k]
+  elif re.match('^ESR-[0-9]+', k) or re.match('^CM-[0-9]+', k):
+    ducs[k]=d[k]
+  elif re.match('^CIWD-[0-9]+', k):
+    dciwd[k]=d[k]
+  elif re.match('^NEXUS-[0-9]+', k):
+    dnexus[k]=d[k]
+  elif re.match('^GPS-[0-9]+', k):
+    dgps[k]=d[k]
+  elif re.match('^GPSBL-[0-9]+', k):
+    dgpsbl[k]=d[k]
+  else:
+    dothers[k]=d[k]
+
+printTasks('UCS-X:', ducsx)
+printTasks('UCS:', ducs)
+printTasks('CIWD:', dciwd)
+printTasks('NEXUS:', dnexus)
+printTasks('G+ SAP Adapter:', dgps)
+printTasks('G+ Siebel Adapter:', dgpsbl)
+printTasks('Others:', dothers)
