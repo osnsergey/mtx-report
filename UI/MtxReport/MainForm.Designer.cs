@@ -60,6 +60,7 @@
             this.Controls.Add(this.tasksBox);
             this.Controls.Add(this.runReport);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mtx Report Builder";
             this.ResumeLayout(false);
             this.PerformLayout();
