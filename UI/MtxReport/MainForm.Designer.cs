@@ -37,7 +37,7 @@
             this.runReport.Location = new System.Drawing.Point(12, 12);
             this.runReport.Name = "runReport";
             this.runReport.Size = new System.Drawing.Size(97, 38);
-            this.runReport.TabIndex = 0;
+            this.runReport.TabIndex = 1;
             this.runReport.Text = "Report";
             this.runReport.UseVisualStyleBackColor = true;
             this.runReport.Click += new System.EventHandler(this.button1_Click);
@@ -49,7 +49,7 @@
             this.tasksBox.Name = "tasksBox";
             this.tasksBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tasksBox.Size = new System.Drawing.Size(859, 473);
-            this.tasksBox.TabIndex = 1;
+            this.tasksBox.TabIndex = 0;
             this.tasksBox.WordWrap = false;
             // 
             // MainForm
