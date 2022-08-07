@@ -62,6 +62,7 @@ namespace MtxReport
         {
             Microsoft.Office.Interop.Outlook.Application oApp = new Microsoft.Office.Interop.Outlook.Application();
             Microsoft.Office.Interop.Outlook.MailItem oMsg = (Microsoft.Office.Interop.Outlook.MailItem)oApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+            var mailItemInspector = oMsg.GetInspector;
 
             DayOfWeek currentDay = DateTime.Now.DayOfWeek;
             int daysTillCurrentDay = (currentDay == DayOfWeek.Sunday ? 7 : (int)currentDay) - (int)DayOfWeek.Monday;
@@ -146,6 +147,7 @@ namespace MtxReport
             oMsg.BodyFormat = OlBodyFormat.olFormatHTML;
             oMsg.HTMLBody = msgHeader + msgBody + msgFooter;
             oMsg.Display(false); //In order to display it in modal inspector change the argument to true
+            mailItemInspector.Activate(); // Bring the editor to the foreground.
         }
     }
 }
