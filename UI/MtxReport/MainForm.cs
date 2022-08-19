@@ -133,13 +133,13 @@ namespace MtxReport
             string msgFooter = System.IO.File.ReadAllText("footer.html");
             string msgBody = "";
 
-            msgBody += renderTasks("UCS-X:", ducsx, false);
-            msgBody += renderTasks("UCS:", ducs);
-            msgBody += renderTasks("CIWD:", dciwd);
-            msgBody += renderTasks("NEXUS:", dnexus);
-            msgBody += renderTasks("G+ SAP Adapter:", dgps);
-            msgBody += renderTasks("G+ Siebel Adapter:", dgpsbl);
-            msgBody += renderTasks("Others:", dothers);
+            msgBody += renderTasks("UCS-X", ducsx, false);
+            msgBody += renderTasks("UCS", ducs);
+            msgBody += renderTasks("Cloud iWD", dciwd);
+            msgBody += renderTasks("Nexus", dnexus);
+            msgBody += renderTasks("G+ SAP Adapter", dgps);
+            msgBody += renderTasks("G+ Siebel Adapter", dgpsbl);
+            msgBody += renderTasks("Others", dothers);
 
             //oMsg.To = "serhiy.osinniy@genesys.com";
             oMsg.To = "olena.logvyna@genesys.com";
