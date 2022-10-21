@@ -102,6 +102,7 @@ namespace MtxReport
 
             SortedDictionary<string, string> ducsx = new SortedDictionary<string, string>();
             SortedDictionary<string, string> ducs = new SortedDictionary<string, string>();
+            SortedDictionary<string, string> dudm = new SortedDictionary<string, string>();
             SortedDictionary<string, string> dciwd = new SortedDictionary<string, string>();
             SortedDictionary<string, string> dnexus = new SortedDictionary<string, string>();
             SortedDictionary<string, string> dgps = new SortedDictionary<string, string>();
@@ -115,8 +116,10 @@ namespace MtxReport
 
                 if(Regex.Match(k, "^UCSX-[0-9]+").Success || Regex.Match(k, "^GAPI-[0-9]+").Success)
                     ducsx[k]=v;
-                else if(Regex.Match(k, "^ESR-[0-9]+").Success || Regex.Match(k, "^CM-[0-9]+").Success)
+                else if (Regex.Match(k, "^ESR-[0-9]+").Success || Regex.Match(k, "^CM-[0-9]+").Success || Regex.Match(k, "^UCS-[0-9]+").Success)
                     ducs[k]=v;
+                else if (Regex.Match(k, "^UDM-[0-9]+").Success)
+                    dudm[k] = v;
                 else if(Regex.Match(k, "^CIWD-[0-9]+").Success)
                     dciwd[k]=v;
                 else if(Regex.Match(k, "^NEXUS-[0-9]+").Success)
@@ -135,6 +138,7 @@ namespace MtxReport
 
             msgBody += renderTasks("UCS-X", ducsx, false);
             msgBody += renderTasks("UCS", ducs);
+            msgBody += renderTasks("UDM", dudm);
             msgBody += renderTasks("Cloud iWD", dciwd);
             msgBody += renderTasks("Nexus", dnexus);
             msgBody += renderTasks("G+ SAP Adapter", dgps);
