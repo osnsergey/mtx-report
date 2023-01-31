@@ -35,12 +35,15 @@ namespace MtxReport
             return res;
         }
 
-        private string renderTasks(string title, IDictionary<string, string> d, bool addBr = true)
+        private static bool addBr = false;
+        private string renderTasks(string title, IDictionary<string, string> d)
         {
             string res="";
             if (d.Count > 0)
             {
-                if(addBr) res += "<p class=MsoNormal><br></p>";
+                if (addBr) { res += "<p class=MsoNormal><br></p>"; }
+                addBr = true;
+
                 res += "<p class=MsoNormal>" + title + "</p>\n";
                 res += "<ul>\n";
 
@@ -136,7 +139,7 @@ namespace MtxReport
             string msgFooter = System.IO.File.ReadAllText("footer.html");
             string msgBody = "";
 
-            msgBody += renderTasks("UCS-X", ducsx, false);
+            msgBody += renderTasks("UCS-X", ducsx);
             msgBody += renderTasks("UCS", ducs);
             msgBody += renderTasks("UDM", dudm);
             msgBody += renderTasks("Cloud iWD", dciwd);
