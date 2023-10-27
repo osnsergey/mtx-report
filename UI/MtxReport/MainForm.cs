@@ -140,7 +140,7 @@ namespace MtxReport
             string msgBody = "";
 
             msgBody += renderTasks("UCS-X", ducsx);
-            msgBody += renderTasks("UCS", ducs);
+            msgBody += renderTasks("eServices", ducs);
             msgBody += renderTasks("UDM", dudm);
             msgBody += renderTasks("Cloud iWD", dciwd);
             msgBody += renderTasks("Nexus", dnexus);
